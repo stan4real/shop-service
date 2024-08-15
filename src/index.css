@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  src:url('/fonts/productsans.ttf') format('truetype');
+}
+
+:root {
+  font-family: "Product Sans";
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(27, 11, 11, 0.87);
+  background-color: rgba(240, 240, 240, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
