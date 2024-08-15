@@ -27,7 +27,7 @@ function FilterOptionItem({
           key={item}
           onClick={() => selectedValueOnChange(item)}
           className={twMerge(
-            "flex w-full items-center justify-between rounded-full transition-colors bg-zinc-300 px-4 py-4 text-xl shadow-md hover:bg-black",
+            "flex w-full items-center justify-between rounded-full transition-colors bg-zinc-300 px-4 py-4 text-xl shadow-md hover:bg-gray-400",
             selectedValue.size == item ? "bg-black text-white " : "",
             selectedValue.color == item ? "bg-black text-white" : "",
           )}

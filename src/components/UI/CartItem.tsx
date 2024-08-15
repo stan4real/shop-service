@@ -29,7 +29,7 @@ function CartItem({ data, setTotal }: CartItemProps) {
         
     console.log('renderCleanUp')
     }
-  }, [data]);
+  });
   return (
     <>
       {selectedItem && (
