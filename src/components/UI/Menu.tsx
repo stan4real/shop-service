@@ -60,10 +60,10 @@ function Menu() {
       >
         <>
           {type === "filters" ? 
-          <div className="h-full overflow-y-auto">
+          <div className="h-full pb-5 overflow-y-auto">
             <CategoriesFilter/>
           </div> :
-          <div>
+          <div className="pb-5">
             <Searchbar/>,
           </div>
           }

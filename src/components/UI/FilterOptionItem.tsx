@@ -21,7 +21,7 @@ function FilterOptionItem({
     }
   };
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-5">
+    <div className="flex flex-row flex-wrap pb-5 justify-center gap-5">
       {data.map((item) => (
         <div
         key={item}

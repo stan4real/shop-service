@@ -43,17 +43,17 @@ const Quantity = ({
       {selectedValue.quantity > 1  && (
         <button
           onClick={decrementQuantity}
-          className="flex h-8 w-8 items-center justify-center animate-[fadeIn2_0.15s_ease-in] rounded-full bg-[#1b0b0bde] text-white"
+          className="flex h-8 w-8 items-center justify-center animate-[fadeIn2_0.15s_ease-in] rounded-full bg-black text-white"
         >
-          <i className="fa-solid fa-minus translate-y-[1px] "></i>
+          <i className="fa-solid fa-minus"></i>
         </button>
       )}
       <p className="w-2">{selectedValue.quantity}</p>
       <button
         onClick={incrementQuantity}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1b0b0bde] text-white"
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white"
       >
-        <i className="fa-solid fa-plus translate-y-[1px]"></i>
+        <i className="fa-solid fa-plus"></i>
       </button>
     </div>
   );
