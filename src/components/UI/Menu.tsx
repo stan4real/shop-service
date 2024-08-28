@@ -64,7 +64,7 @@ function Menu() {
             <CategoriesFilter/>
           </div> :
           <div className="pb-5">
-            <Searchbar/>,
+            <Searchbar/>
           </div>
           }
         </>
