@@ -1,10 +1,24 @@
+import { useState } from "react"
+import { twMerge } from "tailwind-merge"
+import { useItemsStore } from "../../storeItems"
 
 function Searchbar() {
+  const [,setValue] = useState('')
+  const {search, changeSearch} = useItemsStore((state) => state)
+  const handleGlobalChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    let lowerCaseValue = e.target.value.toLowerCase()
+    setValue(e.target.value)
+    changeSearch(lowerCaseValue)
+  }
+  
   return (
     <input
-    className="p-2 rounded-2xl pl-5 w-full shadow-md"
+    className={twMerge("p-4 py-2 h-14 rounded-xl text-xl border-[2px] border-[#1b0b0bde] w-full shadow-md",
+  )}
+  onChange={handleGlobalChange}
     type="text"
-    placeholder="Search ..."
+    defaultValue={search}
+    placeholder="Найти ..."
     />
   )
 }

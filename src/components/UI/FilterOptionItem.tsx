@@ -14,33 +14,33 @@ function FilterOptionItem({
   setSelectedValue,
 }: FilterOptionItemProps) {
   const selectedValueOnChange = (value: string) => {
-    if (text === "Size") {
+    if (text === "Размер") {
       setSelectedValue({ ...selectedValue, size: value });
     } else {
       setSelectedValue({ ...selectedValue, color: value });
     }
   };
   return (
-    <>
+    <div className="flex flex-row flex-wrap justify-center gap-5">
       {data.map((item) => (
         <div
-          key={item}
-          onClick={() => selectedValueOnChange(item)}
-          className={twMerge(
-            "flex w-full items-center justify-between rounded-full transition-colors bg-zinc-300 px-4 py-4 text-xl shadow-md hover:bg-gray-400",
-            selectedValue.size == item ? "bg-black text-white " : "",
-            selectedValue.color == item ? "bg-black text-white" : "",
-          )}
+        key={item}
+        onClick={() => selectedValueOnChange(item)}
+        className={twMerge(
+          "flex w-20 flex-wrap items-center justify-center rounded-xl transition-colors bg-zinc-300 px-4 py-4 text-xl shadow-md",
+          selectedValue.size == item ? "bg-[#1b0b0bde] text-white " : "",
+          selectedValue.color == item ? "bg-[#1b0b0bde] text-white" : "",
+        )}
         >
           {item}
-          {text === "Color" && 
+          {text === "Цвет" && 
           <div style={{backgroundColor:`${item}`}} 
-            className={twMerge('rounded-full border-[3px]  w-6 h-6',
-                selectedValue.color == item ? 'border-[3px] border-white' : 'border-transparent' 
-            )} />}
+          className={twMerge('rounded-full border-[3px]  w-6 h-6',
+            selectedValue.color == item ? 'border-[3px] border-white' : 'border-transparent' 
+          )} />}
         </div>
       ))}
-    </>
+    </div>
   );
 }
 

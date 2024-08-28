@@ -2,7 +2,7 @@ export const DATA_GOODS = [
         {
             id:'4',
             name:'Manfinity Homme Fit Shirt',
-            price:'12',
+            price:'1550',
             img:'https://img.ltwebstatic.com/images3_pi/2023/08/28/15/169318887068e8d858bf3676d7257df7cf871160f4_thumbnail_336x.webp',
             images:[
             'https://img.ltwebstatic.com/images3_pi/2023/08/28/75/169318887521511b63051b430c03dc389478d61ee6.webp',
@@ -12,7 +12,7 @@ export const DATA_GOODS = [
         {   
             id:'11',   
             name:'Manfinity Homme Men Solid Button Up Casual Shirt For Dailywear',   
-            price:'10.16',   
+            price:'1500',   
             img:'https://img.ltwebstatic.com/images3_pi/2024/06/17/45/17185913767077d8ff8bd9f2e8e528ae74bd13214c_thumbnail_336x.webp',   
             images:[   
                 'https://img.ltwebstatic.com/images3_pi/2024/06/17/de/17185913792367d424238bfd9a2d9749c85adee5c3.webp',      'https://img.ltwebstatic.com/images3_pi/2024/06/17/68/17185913966a18c48732fd4a252d342e0a26bca0a1.webp',  
@@ -22,7 +22,7 @@ export const DATA_GOODS = [
         { 
             id:'5', 
             name:'Manfinity Berry Car', 
-            price:'6.72', 
+            price:'1000', 
             img:'https://img.ltwebstatic.com/images3_pi/2024/06/25/a0/1719313805972077234d8b5a0b2a7ae7edcf441de6.webp', 
             images:[ 
                 'https://img.ltwebstatic.com/images3_pi/2024/06/25/32/171931381225b6f4659f83ea0dc27f21292c4906f0.webp', 
@@ -33,7 +33,7 @@ export const DATA_GOODS = [
         {  
             id:'6',  
             name:'Summer  Tank Top',  
-            price:'6.39',  
+            price:'600',  
             img:'https://img.ltwebstatic.com/images3_pi/2024/08/07/c3/17230181710caa7df88513094a86b3d9c0b9a31a75.webp',  
             images:[  
                 'https://img.ltwebstatic.com/images3_pi/2024/08/07/cf/172301816171426bb333422d97fafd4a1f4540cc48.webp',  
@@ -44,7 +44,7 @@ export const DATA_GOODS = [
         {
         id:'10',   
         name:'Men`s round nect T-Shirt',   
-        price:'6.76',   
+        price:'800',   
         img:'https://img.ltwebstatic.com/images3_pi/2024/04/12/8b/1712906594644e82c65531cb24b9be2f398963e5e3.webp',   
         images:[   
             'https://img.ltwebstatic.com/images3_pi/2024/04/12/cb/1712906601e34ebb60660422250128db6e1cb22ba2.webp',      'https://img.ltwebstatic.com/images3_pi/2024/04/12/56/17129066059f4cf7c710299b2b296bf0f5ea46ed2d.webp', 
@@ -54,7 +54,7 @@ export const DATA_GOODS = [
     {  
         id:'8',  
         name:'Men Sun & Tree PrintTee',  
-        price:'5.75',  
+        price:'800',  
         img:'https://img.ltwebstatic.com/images3_pi/2023/06/29/168803375500e0ed5a9ca64a98f2348b3bb8e4eebe.webp',  
         images:[  
             'https://img.ltwebstatic.com/images3_pi/2023/06/29/16880337590960424de0e10630400cc0bd481223c2.webp',      'https://img.ltwebstatic.com/images3_pi/2023/06/29/16880337627dcb87c7b4e0e9d58ef406c1d6f6a8b8.webp', 
@@ -64,7 +64,7 @@ export const DATA_GOODS = [
     {  
         id:'9',  
         name:'Manfinity Homme Men`s Letter & Number Printed Short Sleeve T-Shirt For Summer',  
-        price:'5.73',  
+        price:'480',  
         img:'https://img.ltwebstatic.com/images3_pi/2024/03/21/34/1711017929976a37a85fefca4b4ce84b236318fc9b.webp',  
         images:[  
         'https://img.ltwebstatic.com/images3_pi/2024/03/21/fa/1711017932141af1dbc4bd661d8e3ea514d8000912.webp',
@@ -74,7 +74,7 @@ export const DATA_GOODS = [
     {  
         id:'7',  
         name:'Men Graphic Tee',  
-        price:'8.09',  
+        price:'640',  
         img:'https://img.ltwebstatic.com/images3_pi/2024/06/27/88/17194519727c3a4e286284c54a5cb2a7548cacb816.webp',  
         images:[  
             'https://img.ltwebstatic.com/images3_pi/2024/06/27/d4/1719451973c8345dfe8a84712ff6803a3da892447c.webp',  
@@ -100,13 +100,22 @@ export const DATA_GOODS = [
     //     img:'https://tailoredathlete.co.uk/cdn/shop/files/Photo-333_1200x.jpg?v=1695043432'
     // },
 ]
-
+export const profileField = [
+    {
+        name:'Адрес',
+        path:''
+    },
+    {
+        name:'История',
+        path:'/orders_history'
+    },
+    {
+        name:'Поддержка',
+        path:'/support'
+    }
+]
 export const MENU_ITEMS = [
     
-    {
-        name:'Search',
-        icon:'fa-solid fa-magnifying-glass fa-xl text-white'
-    },
     {
         name:'Cart',
         icon:'fa-solid fa-cart-shopping fa-xl ',
@@ -114,8 +123,8 @@ export const MENU_ITEMS = [
     },
     {
         name:'Profile',
-        icon:'fa-solid fa-user fa-xl text-white',
-        // path:'/profile'
+        icon:'fa-solid fa-user fa-xl ',
+        path:'/profile'
     }
 ]
 export const CATEGORIES = [

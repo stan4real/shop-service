@@ -28,6 +28,22 @@ export default {
         slideOut: {
           '0%':{transform:'translate(0px, 0px)'},
           '100%': {transform:'translate(0px, 300px)'}
+        },
+        zoomIn: {
+          '0%': {transform:'scale(1.2)'},
+          '100%': {transform:'scale(1)'}
+        },
+        zoomOut: {
+          '0%': {transform:'scale(1)'},
+          '100%': {transform:'scale(1.2)'}
+        },
+        fadeInAndZoomIn:{
+          '0%': {transform:'scale(1.3)', opacity:0},
+          '100%': {transform:'scale(1)', opacity:1}
+        },
+        fadeOutAndZoomOut:{
+          '0%': {transform:'scale(1)', opacity:1},
+          '100%': {transform:'scale(1.3)', opacity:0}
         }
       }
     },

@@ -8,21 +8,28 @@
   font-weight: 400;
   src:url('/fonts/productsans.ttf') format('truetype');
 }
-
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 800;
+  src:url('/fonts/product-sans-bold.ttf') format('truetype');
+}
 :root {
   font-family: "Product Sans";
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(27, 11, 11, 0.87);
-  background-color: rgba(240, 240, 240, 0.87);
+  color: #1b0b0bde;
+  background-color: #f5f5f5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+::-webkit-scrollbar {
+  width: 0px;
+}
 body {
   margin: 0;
   min-width: 320px;

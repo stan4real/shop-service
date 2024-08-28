@@ -13,7 +13,7 @@ function Button({ children, type, className, onClick }: ButtonProps) {
       onClick={onClick}
       type={type}
       className={twMerge(
-        "mt-6 flex w-full items-center justify-center rounded-2xl bg-white px-4 py-4 text-xl text-black shadow-md active:bg-zinc-300",
+        "mt-6 flex w-full items-center justify-center rounded-2xl bg-white px-4 py-4 text-xl text-[#1b0b0bde] shadow-md active:bg-zinc-300",
         className ? `${className}` : "",
       )}
     >

@@ -9,13 +9,13 @@ function ShippingForm() {
     console.log(loaderInfo)
   return (
     <Form method='get' navigate={false} fetcherKey="my-key" className='flex flex-col gap-2 pt-2'>
-        <h1 className='text-center text-xl'>Input your shipping address</h1>
-        <input type='text' name='City' placeholder='City' className={inputClass}/>
-        <input type='text' name='Street' placeholder='Street' className={inputClass}/>
-        <input type='text' name='Apartment' placeholder='Apartment' className={inputClass}/>
+        <h1 className='text-center text-xl'>Укажите адрес доставки</h1>
+        <input type='text' name='City' placeholder='Город' className={inputClass}/>
+        <input type='text' name='Street' placeholder='Улица' className={inputClass}/>
+        <input type='text' name='Apartment' placeholder='Дом' className={inputClass}/>
         <Total />
         <Button type='submit'>
-            <p>Submit</p>
+            <p>Оформить</p>
         </Button>
     </Form>
   )

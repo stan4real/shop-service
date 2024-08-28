@@ -1,5 +1,6 @@
 import {create} from 'zustand'
 import { SelectedValue } from './components/UI/Filter'
+import { persist } from "zustand/middleware";
 
 export type CartProps = {
     id:string,
@@ -7,13 +8,58 @@ export type CartProps = {
 }
 type CartStore = {
     cart:CartProps[],
-    addToCart: (by:string, selectedValue:SelectedValue) => void,
-    removeFromCartById:(id:string)=>void,
+    addToCart: (id:string, selectedValue:SelectedValue) => void,
+    increaseQuantity:(id:string, selectedValue:SelectedValue) => void,
+    decreaseQuantity:(id:string, selectedValue:SelectedValue) => void,
+    removeFromCartById:(id:string, selectedValue:SelectedValue) => void,
     removeAllFromCart:() => void
 }
-export const useCartStore = create<CartStore>((set) => ({
+export const useCartStore = create(
+    persist<CartStore>(
+        (set, get) => ({
     cart:[],
-    addToCart:(by, selectedValue) => set((state)=> ({cart:[...state.cart,{id:by, values:selectedValue}]})),
-    removeFromCartById:(id)=> set((state)=>({cart:state.cart.filter(el => el.id !==id)})),
-    removeAllFromCart:() => set(()=>({cart:[]}))
-}))
+    addToCart:(id,selectedValue) => {
+        const isItem = get().cart.find(el => el.id === id)
+        if (isItem)
+            {
+            let size = isItem.values.size
+            let color = isItem.values.color
+            if(size===selectedValue.size && color === selectedValue.color){
+                isItem.values.quantity=isItem.values.quantity+selectedValue.quantity
+                set({cart:[...get().cart]})
+            } else {
+                set({cart:[...get().cart,{id:id,values:selectedValue}] })
+            }
+        } else {
+            set({cart:[...get().cart,{id:id,values:selectedValue}] })
+        }
+    },
+    increaseQuantity:(id, selectedValue) => {
+        const isItem = get().cart.find(el => el.id === id && el.values.size === selectedValue.size && el.values.color === selectedValue.color)
+        console.log(isItem)
+        if (isItem){
+            isItem.values.quantity++
+        }
+        set({cart:[...get().cart]})
+    },
+    decreaseQuantity:(id, selectedValue) => {
+        const isItem = get().cart.find(el => el.id === id && el.values.size === selectedValue.size && el.values.color === selectedValue.color)
+        
+        if (isItem){
+            isItem.values.quantity--
+        }
+            set({cart:[...get().cart]})
+    },
+    removeFromCartById:(id, selectedValue)=> {
+        const isItem = get().cart.find(el => el.id === id && el.values.size === selectedValue.size && el.values.color === selectedValue.color)
+        console.log(isItem)
+        if (isItem){
+            const updatedCart = get().cart.filter(el => el !== isItem)
+            set({cart:updatedCart})
+        }
+    },
+    removeAllFromCart:() => set(()=>({cart:[]})),
+}),
+{
+    name:'cart-items'
+}));

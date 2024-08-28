@@ -10,6 +10,11 @@ import ProductPage from './components/PAGES/ProductPage.tsx'
 import MainPage from './components/PAGES/MainPage.tsx'
 import CartPage from './components/PAGES/CartPage.tsx'
 import CheckoutPage from './components/PAGES/CheckoutPage.tsx'
+import ProfilePage from './components/PAGES/ProfilePage.tsx'
+import ProfileEditPage from './components/PAGES/ProfileEditPage.tsx'
+import OrdersHistoryPage from './components/PAGES/OrdersHistoryPage.tsx'
+import SupportPage from './components/PAGES/SupportPage.tsx'
+import OrderDesc from './components/UI/OrderDesc.tsx'
 
  const router = createBrowserRouter([
   {
@@ -36,6 +41,26 @@ import CheckoutPage from './components/PAGES/CheckoutPage.tsx'
           let url = new URL(request.url)
           return url
         }
+      },
+      {
+        path:'/profile',
+        element:<ProfilePage/>
+      },
+      {
+        path:'/profile_edit',
+        element:<ProfileEditPage/>
+      },
+      {
+        path:'/orders_history',
+        element:<OrdersHistoryPage/>
+      },
+      {
+        path:'/orders_history/:historyOrderId',
+        element:<OrderDesc/>
+      },
+      {
+        path:'/support',
+        element:<SupportPage/>
       }
     ]
   },

@@ -1,12 +1,19 @@
 import CardItem from "../UI/CardItem"
-import { DATA_GOODS } from "../utils/static"
+import { useItemsStore } from "../../storeItems" 
 
 function MainPage() {
+  const {items, search} = useItemsStore((state) => state)
+  const filteredItems = items.filter((el) => {
+    if (search === ''){
+      return el
+    } else {
+      return el.name.toLowerCase().includes(search)
+    }
+  })
   return (<>
-  {/* <Searchbar /> */}
     <div className="flex flex-wrap gap-4 pt-6">
-      {DATA_GOODS &&
-        DATA_GOODS.map((item) => 
+      {items &&
+        filteredItems.map((item) => 
         <CardItem card={item} key={item.id} />
         )}
     </div>

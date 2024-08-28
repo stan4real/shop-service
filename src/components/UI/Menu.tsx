@@ -4,9 +4,19 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import Modal from "./Modal";
 import CategoriesFilter from "./CategoriesFilter";
+import Searchbar from "./Searchbar";
 
 function Menu() {
   const [showModal, setShowModal] = useState(false)
+  const [type,setType] = useState('')
+  const handleFilterOpen = (type:string) => {
+    setType(type)
+    setShowModal(true)
+  }
+  const handleSearchOpen = (type:string) => {
+    setType(type)
+    setShowModal(!showModal)
+  }
   return (
     <>
     <div className="fixed bottom-2 left-1/2 flex w-[95%] -translate-x-1/2 items-center 
@@ -19,9 +29,14 @@ function Menu() {
       </div>
       <div className="flex justify-between w-3/4 pl-1  items-center">
         <div 
-        onClick={()=>setShowModal(true)}
+        onClick={() => handleFilterOpen('filters')}
         className="w-6 h-[50px] flex justify-center items-center">
           <i className="fa-solid fa-list fa-xl text-white"/>
+        </div>
+        <div 
+        onClick={() => handleSearchOpen('search')}
+        className="w-6 h-[50px] flex justify-center items-center">
+          <i className="fa-solid fa-magnifying-glass fa-xl text-white"/>
         </div>
         {MENU_ITEMS.map((item) => (
           item.path ?
@@ -38,15 +53,22 @@ function Menu() {
     </div>
     {showModal && createPortal(
       <Modal 
-        setActive={setShowModal} 
-        text="Filters" 
-        className="justify-start"
-        icon="fa-solid fa-list fa-xl"
-        >
-        <div className="h-full overflow-y-auto">
-          <CategoriesFilter/>
-        </div>
-      </Modal>,
+      setActive={setShowModal} 
+      text={type === "filters" ? 'Фильтры' : 'Поиск'} 
+      className="justify-start h-auto"
+      icon={type === "filters" ? 'fa-solid fa-list fa-xl' : 'fa-solid fa-magnifying-glass fa-xl'}
+      >
+        <>
+          {type === "filters" ? 
+          <div className="h-full overflow-y-auto">
+            <CategoriesFilter/>
+          </div> :
+          <div>
+            <Searchbar/>,
+          </div>
+          }
+        </>
+      </Modal>,  
       document.body
     )}
     </>

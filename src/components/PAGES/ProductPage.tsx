@@ -19,44 +19,43 @@ function ProductPage() {
   });
   const handleAddToCart = () => {
     if(!selectedValue.color || !selectedValue.size){
-      toast('Choose size and color')
+      toast('Выберите размер и цвет')
     } else {
       addToCart(state.id, selectedValue)
-      toast.success('Successfully added')
+      toast.success('Товар добавлен в корзниу')
     }
   }
   return (
     <div>
       <Back />
-      <div className="flex h-[330px] items-center justify-start gap-4 overflow-x-auto py-3">
-        <img src={state.img} className="h-full" />
-
+      <div className="flex snap-x snap-mandatory h-[330px] items-center justify-start gap-4 overflow-x-auto py-3">
+        <img src={state.img} className="h-full snap-center" />
         {state.images &&
           state.images.map((item) => (
-            <img src={item} key={item} className="h-full" />
+            <img src={item} key={item} className="h-full snap-center" />
           ))}
       </div>
-      <p className="text-2xl">{state.name}</p>
-      <p className="text-xl text-slate-700">{state.price}$</p>
+      <p className="text-xl">{state.name}</p>
+      <p className="text-xl "><b>{state.price} ₽</b></p>
       <Description />
       <div className="flex w-full flex-col items-center justify-center gap-2 pt-6">
         <Filter
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
-          filterName="Size"
+          filterName="Размер"
         />
         <Filter
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
-          filterName="Color"
+          filterName="Цвет"
         />
         <Filter
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
-          filterName="Quantity"
+          filterName="Количество"
         />
-        <Button onClick={handleAddToCart}>
-          <p>Add To Cart</p>
+        <Button onClick={handleAddToCart} className="border-[#1b0b0bde] border-[2px] ">
+          <p className="animate-pulse">Добавить в корзину</p>
         </Button>
       </div>
     </div>
