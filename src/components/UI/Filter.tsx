@@ -4,8 +4,8 @@ import { createPortal } from 'react-dom';
 import FilterOptionItem from "./FilterOptionItem";
 import { ALL_COLORS, ALL_SIZES } from "../utils/static";
 import { twMerge } from "tailwind-merge";
-import Quantity from "./Quantity";
-import arrow from '/arrowProfileFIelds.svg'
+// import Quantity from "./Quantity";
+// import arrow from '/arrowProfileFIelds.svg'
 
 export type SelectedValue = {
   size:string,
@@ -25,25 +25,24 @@ function Filter({
   const [showModal, setShowModal] = useState(false)
   
     return (<>
-    <div onClick={()=>setShowModal(true)} 
-    className={twMerge("text-lg shadow-md  bg-white w-full px-4 py-4 rounded-xl flex justify-between items-center" ,
-      (filterName !== "Количество") ? "active:bg-zinc-300": ""
-    )}>
-        <p>{filterName}</p>
+    <div 
+    className={twMerge("text-lg  flex flex-col gap-2 justify-start items-center")}>
+        <p className="self-start text-lg">{filterName}</p>
         <div className="flex justify-start items-center gap-5">
+                { filterName !== "Количество" &&
+                  <FilterOptionItem
+                  text={filterName}
+                  data={filterName==="Размер" ? ALL_SIZES : ALL_COLORS} 
+                  selectedValue={selectedValue} 
+                  setSelectedValue={setSelectedValue}/>
+                }
             
-                { filterName == "Размер" ?<p className="-translate-x-1"> {selectedValue.size}</p> :
-                  filterName == "Цвет" &&
-                <div style={{backgroundColor:`${selectedValue.color}`}} 
-                className='rounded-full border-[3px]  w-6 h-6'>
-                </div>}
-            
-            { !(filterName === "Количество") ? <img src={arrow} className="rotate-90 mr-3"/> :
+            {/* { (filterName === "Количество") && 
               <Quantity 
                 setSelectedValue={setSelectedValue} 
                 selectedValue={selectedValue}
                 className="gap-5"/>
-            }
+            } */}
         </div>
     </div>
         {showModal &&

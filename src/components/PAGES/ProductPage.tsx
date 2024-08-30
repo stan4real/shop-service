@@ -37,7 +37,7 @@ function ProductPage() {
       </div>
       <p className="text-xl">{state.name}</p>
       <Description />
-      <div className="flex w-full flex-col items-center justify-center gap-2 pt-6">
+      <div className="flex w-full flex-col items-start justify-start gap-4 pt-6">
         <Filter
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
@@ -47,11 +47,6 @@ function ProductPage() {
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
           filterName="Цвет"
-        />
-        <Filter
-          selectedValue={selectedValue}
-          setSelectedValue={setSelectedValue}
-          filterName="Количество"
         />
         <Button onClick={handleAddToCart} className="border-[#1b0b0bde] border-[2px] ">
           <div className="flex justify-between items-center gap-5">
