@@ -1,5 +1,5 @@
-import WebApp from "@twa-dev/sdk";
-import { ReactElement, useEffect, useState } from "react";
+
+import { ReactElement, useState } from "react";
 import { twMerge } from "tailwind-merge";
 type ModalProps = {
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,21 +14,6 @@ function Modal({setActive, text, children, className,icon }: ModalProps) {
     setOnClose(true)
     setTimeout(()=>setActive(false), 300);
   };
-  console.log(WebApp.platform)
-  console.log(WebApp.viewportHeight)
-  useEffect(()=> {
-    const modal = document.querySelector('.stickit');
-    console.log(modal)
-    if (window.visualViewport){
-      const viewport = window.visualViewport
-      console.log(viewport)
-      function fixPosition() {
-        (modal as HTMLElement).style.top = `${viewport.height}px`
-      }
-      viewport.addEventListener('resize', fixPosition)
-      fixPosition()
-    }
-  }, [])
   return (
     <div
       onClick={closeModal}
@@ -40,8 +25,8 @@ function Modal({setActive, text, children, className,icon }: ModalProps) {
       <div
         onClick={(e) => e.stopPropagation()}
         className={twMerge(
-          `absolute flex h-1/2 w-full flex-col items-start justify-between gap-2 rounded-t-[20px] bg-white px-4 pt-4 text-center`,
-          onClose ? "stickit-out" : "stickit" ,
+          "absolute bottom-0 flex h-1/2 w-full flex-col items-start justify-between gap-2 rounded-t-[20px] bg-white px-4 pt-4 text-center",
+          onClose ? "animate-[slideOut_0.3s_ease-out] translate-y-1/2" : "animate-[slideIn_0.3s_ease-out] translate-y-0" ,
           className ? `${className}`:""
         )}
       >

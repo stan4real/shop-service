@@ -16,8 +16,8 @@ function CardItem({card}:Props) {
             <h4 className="line-clamp-1">
                 {card.name}
             </h4>
-            <div className="flex w-full justify-between items-center">
-                <p>Tops</p>
+            <div className="flex w-full justify-start items-center">
+                
                 <p>    
                     <b>{card.price} ₽</b>
                 </p>

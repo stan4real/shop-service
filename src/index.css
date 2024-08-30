@@ -30,34 +30,13 @@
 ::-webkit-scrollbar {
   width: 0px;
 }
-.stickit{
-  left: 0;
-  transform: translateY(-100%);
-  opacity: 1;
-  animation: slideOut 0.3s ease-out;
+input {
+  -webkit-appearance:none;
+  outline: none;
+}
+input:focus{
+  outline: none;
   
-}
-.stickit-out{
-  left: 0;
-  transform: translateY(0);
-  animation: slideIn 0.3s ease-out;
-  
-}
-@keyframes slideOut{
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(-100%);
-  }
-}
-@keyframes slideIn{
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
 }
 body {
   margin: 0;

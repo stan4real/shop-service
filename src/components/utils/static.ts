@@ -116,14 +116,10 @@ export const profileField = [
 ]
 export const MENU_ITEMS = [
     
-    {
-        name:'Cart',
-        icon:'fa-solid fa-cart-shopping fa-xl ',
-        path:'/cart'
-    },
+    
     {
         name:'Profile',
-        icon:'fa-solid fa-user fa-xl ',
+        icon:'fa-solid fa-user fa-xl',
         path:'/profile'
     }
 ]

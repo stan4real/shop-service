@@ -36,7 +36,6 @@ function ProductPage() {
           ))}
       </div>
       <p className="text-xl">{state.name}</p>
-      <p className="text-xl "><b>{state.price} ₽</b></p>
       <Description />
       <div className="flex w-full flex-col items-center justify-center gap-2 pt-6">
         <Filter
@@ -55,7 +54,10 @@ function ProductPage() {
           filterName="Количество"
         />
         <Button onClick={handleAddToCart} className="border-[#1b0b0bde] border-[2px] ">
-          <p className="animate-pulse">Добавить в корзину</p>
+          <div className="flex justify-between items-center gap-5">
+            <p className="">Добавить в корзину</p>
+            <p className="text-xl ">{state.price}&nbsp;₽</p>
+          </div>
         </Button>
       </div>
     </div>

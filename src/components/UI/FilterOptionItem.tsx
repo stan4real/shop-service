@@ -21,22 +21,22 @@ function FilterOptionItem({
     }
   };
   return (
-    <div className="flex flex-row flex-wrap pb-5 justify-center gap-5">
+    <div className={`flex flex-row flex-wrap pb-5 ${text === "Цвет" ? 'justify-center' : 'justify-between'} gap-1 w-full`}>
       {data.map((item) => (
         <div
         key={item}
         onClick={() => selectedValueOnChange(item)}
         className={twMerge(
-          "flex w-20 flex-wrap items-center justify-center rounded-xl transition-colors bg-zinc-300 px-4 py-4 text-xl shadow-md",
-          selectedValue.size == item ? "bg-[#1b0b0bde] text-white " : "",
-          selectedValue.color == item ? "bg-[#1b0b0bde] text-white" : "",
+          "flex gap-1 bg-black text-white border-[2px] rounded-xl shadow-md py-1 px-3 transition-colors",
+          selectedValue.color == item ? "bg-[#white] text-[#1b0b0bde] border-[#1b0b0bde]" : "border-transparent",
+          selectedValue.size == item ? "bg-[#white] text-[#1b0b0bde] border-[#1b0b0bde]" : "",
         )}
         >
           {item}
           {text === "Цвет" && 
           <div style={{backgroundColor:`${item}`}} 
-          className={twMerge('rounded-full border-[3px]  w-6 h-6',
-            selectedValue.color == item ? 'border-[3px] border-white' : 'border-transparent' 
+          className={twMerge('rounded-full border-[2px] border-slate-50  w-6 h-6',
+            selectedValue.color == item ? 'border-[2px] border-black' : '' 
           )} />}
         </div>
       ))}

@@ -24,7 +24,9 @@ function CartPage() {
             />
         )
         )}
-    <p onClick={removeCart}>Удалить все</p>
+    <p 
+      className="self-end"
+      onClick={removeCart}>Удалить все</p>
     </div>
     <Total />
     <Button>
