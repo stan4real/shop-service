@@ -18,15 +18,17 @@ function Searchbar() {
         300)
   }, [])
   return (
-    <input
-    className={twMerge("p-4 py-2 h-14 rounded-xl text-xl border-[2px] border-[#1b0b0bde] w-full shadow-md",
-  )}
-    onChange={handleGlobalChange}
-    ref={ref}
-    type="text"
-    defaultValue={search}
-    placeholder="Найти ..."
-    />
+    <form>
+      <input
+      className={twMerge("p-4 py-2 h-14 rounded-xl text-xl border-[2px] border-[#1b0b0bde] w-full shadow-md",
+      )}
+      onChange={handleGlobalChange}
+      ref={ref}
+      type="text"
+      defaultValue={search}
+      placeholder="Найти ..."
+      />
+    </form>
   )
 }
 

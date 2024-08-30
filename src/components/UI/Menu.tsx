@@ -69,7 +69,7 @@ function Menu() {
       <Modal 
       setActive={setShowModal} 
       text={type === "filters" ? 'Фильтры' : 'Поиск'} 
-      className={`${platform === "ios" ? 'h-1/2' : 'h-auto'} justify-start`}
+      className="justify-start h-auto"
       icon={type === "filters" ? 'fa-solid fa-list fa-xl' : 'fa-solid fa-magnifying-glass fa-xl'}
       >
         <>
@@ -77,7 +77,7 @@ function Menu() {
           <div className="h-full pb-8 overflow-y-auto">
             <CategoriesFilter/>
           </div> :
-          <div className="pb-8">
+          <div className={`${platform === "ios" ? 'pb-[420px]' : 'pb-8'}`}>
             <Searchbar/>
           </div>
           }
