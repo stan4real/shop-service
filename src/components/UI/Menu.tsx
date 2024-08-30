@@ -30,12 +30,12 @@ function Menu() {
       <div className="flex justify-between w-3/4 pl-1  items-center">
         <div 
         onClick={() => handleFilterOpen('filters')}
-        className="w-6 h-[50px] flex justify-center items-center">
+        className="w-6 h-[50px] flex justify-center items-center cursor-pointer">
           <i className="fa-solid fa-list fa-xl text-white"/>
         </div>
         <div 
         onClick={() => handleSearchOpen('search')}
-        className="w-6 h-[50px] flex justify-center items-center">
+        className="w-6 h-[50px] flex justify-center items-center cursor-pointer">
           <i className="fa-solid fa-magnifying-glass fa-xl text-white"/>
         </div>
         {MENU_ITEMS.map((item) => (
@@ -55,15 +55,15 @@ function Menu() {
       <Modal 
       setActive={setShowModal} 
       text={type === "filters" ? 'Фильтры' : 'Поиск'} 
-      className="justify-start h-auto"
+      className={`justify-start h-auto`}
       icon={type === "filters" ? 'fa-solid fa-list fa-xl' : 'fa-solid fa-magnifying-glass fa-xl'}
       >
         <>
           {type === "filters" ? 
-          <div className="h-full pb-5 overflow-y-auto">
+          <div className="h-full pb-8 overflow-y-auto">
             <CategoriesFilter/>
           </div> :
-          <div className="pb-5">
+          <div className="pb-8">
             <Searchbar/>
           </div>
           }

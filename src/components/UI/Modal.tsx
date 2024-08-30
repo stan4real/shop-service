@@ -1,4 +1,5 @@
-import { ReactElement, useState } from "react";
+import WebApp from "@twa-dev/sdk";
+import { ReactElement, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 type ModalProps = {
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,18 +14,34 @@ function Modal({setActive, text, children, className,icon }: ModalProps) {
     setOnClose(true)
     setTimeout(()=>setActive(false), 300);
   };
+  console.log(WebApp.platform)
+  console.log(WebApp.viewportHeight)
+  useEffect(()=> {
+    const modal = document.querySelector('.stickit');
+    console.log(modal)
+    if (window.visualViewport){
+      const viewport = window.visualViewport
+      console.log(viewport)
+      function fixPosition() {
+        (modal as HTMLElement).style.top = `${viewport.height}px`
+      }
+      viewport.addEventListener('resize', fixPosition)
+      fixPosition()
+    }
+  }, [])
   return (
     <div
       onClick={closeModal}
-      className={twMerge("fixed bottom-0  left-0 z-10 h-screen w-screen overflow-hidden bg-black/50 transition-transform",
+      className={twMerge(`fixed bottom-0  left-0 z-10 h-screen w-screen overflow-hidden bg-black/50 transition-transform`,
         onClose ? "animate-[fadeOut_0.3s_ease-out] opacity-0": "animate-[fadeIn_0.3s_ease-out]"
+      
       )}
     >
       <div
         onClick={(e) => e.stopPropagation()}
         className={twMerge(
-          "absolute bottom-0 flex h-1/2 w-full flex-col items-start justify-between gap-2 rounded-t-[20px] bg-white px-4 pt-4 text-center",
-          onClose ? "animate-[slideOut_0.3s_ease-out] translate-y-1/2" : "animate-[slideIn_0.3s_ease-out] translate-y-0" ,
+          `absolute flex h-1/2 w-full flex-col items-start justify-between gap-2 rounded-t-[20px] bg-white px-4 pt-4 text-center`,
+          onClose ? "stickit-out" : "stickit" ,
           className ? `${className}`:""
         )}
       >
@@ -35,7 +52,7 @@ function Modal({setActive, text, children, className,icon }: ModalProps) {
             </div>
           <i
             onClick={closeModal}
-            className="fa-solid fa-x fa-lg absolute right-5 top-7"
+            className="fa-solid fa-x fa-lg absolute right-5 top-7 cursor-pointer"
           ></i>
         </div>
         <div className="w-full overflow-scroll flex flex-col gap-2">

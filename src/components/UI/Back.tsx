@@ -7,7 +7,7 @@ function Back({onClick}:BackProps) {
   return (
     <div 
     onClick={!onClick ? ()=> navigate(-1) : onClick}
-    className="w-8 h-8 bg-white rounded-full flex justify-center items-center">
+    className="w-8 h-8 bg-white rounded-full flex justify-center items-center cursor-pointer">
         <i className="fa-solid fa-arrow-left"></i>
     </div>
   )
