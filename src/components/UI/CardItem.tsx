@@ -9,9 +9,9 @@ function CardItem({card}:Props) {
     <Link 
     to={`/${card.id}`}
     state={card}
-    className="h-[265px] w-[47%] bg-white shadow-md rounded-xl"
+    className="h-[265px] w-[47%] "
     >
-        <div style={{backgroundImage:`url(${card.img})`}} className="bg-cover h-[205px] rounded-t-xl bg-top"/>
+        <div style={{backgroundImage:`url(${card.img})`}} className="bg-cover h-[205px] rounded-xl bg-top"/>
         <div className="w-full p-1 flex flex-col justify-center items-start">
             <h4 className="line-clamp-1">
                 {card.name}
