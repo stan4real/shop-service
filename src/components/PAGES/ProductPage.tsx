@@ -25,11 +25,12 @@ function ProductPage() {
       toast.success('Товар добавлен в корзниу')
     }
   }
+  console.log(state.img)
   return (
     <div>
       <Back />
       <div className="flex snap-x snap-mandatory h-[330px] items-center justify-start gap-4 overflow-x-auto py-3">
-        <img src={state.img} className="h-full snap-center" />
+        <img src={`/shop-service/${state.img}`} className="h-full snap-center" />
         {state.images &&
           state.images.map((item) => (
             <img src={item} key={item} className="h-full snap-center" />
