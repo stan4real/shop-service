@@ -1,11 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
-import { createPortal } from "react-dom";
 import Modal from "./Modal";
-import CategoriesFilter from "./CategoriesFilter";
-import Searchbar from "./Searchbar";
+import { useState } from "react";
 import WebApp from "@twa-dev/sdk";
+import Searchbar from "./Searchbar";
+import { createPortal } from "react-dom";
 import { useCartStore } from "../../storeCart";
+import { Link, NavLink } from "react-router-dom";
+import CategoriesFilter from "./CategoriesFilter";
 
 function Menu() {
   const [showModal, setShowModal] = useState(false)
@@ -82,7 +82,7 @@ function Menu() {
           <div className="h-full pb-8 overflow-y-auto">
             <CategoriesFilter/>
           </div> :
-          <div className={`${platform === "ios" ? 'pb-[420px]' : 'pb-8'}`}>
+          <div className={`${platform === "ios" ? 'pb-[400px]' : 'pb-8'}`}>
             <Searchbar/>
           </div>
           }
