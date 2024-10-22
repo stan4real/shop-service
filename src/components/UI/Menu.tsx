@@ -28,7 +28,7 @@ function Menu() {
     justify-center rounded-2xl bg-gray-950 px-4 py-2 shadow-md">
       <div className="text-white flex w-[70px] justify-center items-center gap-4">
         <Link to={"/"}>
-          <img className="w-full h-auto" src="/vite.svg"/>
+          <img className="w-full h-auto" src="/shop-service/vite.svg"/>
         </Link>
         <div className="bg-white rounded-full h-[50px] w-[1px]"/>
       </div>
